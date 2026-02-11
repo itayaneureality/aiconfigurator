@@ -22,6 +22,14 @@ Let's get started.
 
 ## Build and Install
 
+### Quick Start for WebUI
+
+For detailed WebUI build instructions and automated setup, see **[BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)** or use the quick build script:
+
+```bash
+./build_and_launch.sh
+```
+
 ### Install from PyPI
 
 ```bash
