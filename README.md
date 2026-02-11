@@ -44,8 +44,6 @@ cd aiconfigurator  # Navigate to repository root
 cd aiconfigurator  REM Navigate to repository root
 build_and_launch.bat
 ```
-build_and_launch.bat
-```
 
 ### Install from PyPI
 
