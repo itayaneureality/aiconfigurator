@@ -7,14 +7,29 @@ SPDX-License-Identifier: Apache-2.0
 
 This is a quick reference guide for setting up and running the aiconfigurator WebUI.
 
+## Platform Support
+
+✅ **Linux** | ✅ **macOS** | ✅ **Windows 10/11** (native or WSL2)
+
 ## TL;DR - Fast Setup
 
+**On Linux/macOS:**
 ```bash
 # Method 1: Use the automated script
 ./build_and_launch.sh
 
 # Method 2: Manual setup
 pip3 install -e ".[webapp]"
+aiconfigurator webapp
+```
+
+**On Windows (Command Prompt):**
+```cmd
+REM Method 1: Use the automated script
+build_and_launch.bat
+
+REM Method 2: Manual setup
+python -m pip install -e ".[webapp]"
 aiconfigurator webapp
 ```
 
@@ -33,6 +48,8 @@ Access the WebUI at: **http://127.0.0.1:7860**
 ## Common Commands
 
 ### Installation
+
+**On Linux/macOS:**
 ```bash
 # Install with webapp support
 pip3 install -e ".[webapp]"
@@ -41,7 +58,18 @@ pip3 install -e ".[webapp]"
 aiconfigurator version
 ```
 
+**On Windows:**
+```cmd
+REM Install with webapp support
+python -m pip install -e ".[webapp]"
+
+REM Verify installation
+aiconfigurator version
+```
+
 ### Launch WebUI
+
+**On All Platforms:**
 ```bash
 # Basic launch
 aiconfigurator webapp
@@ -57,12 +85,32 @@ aiconfigurator webapp --debug
 ```
 
 ### Check Status
+
+**On Linux/macOS:**
 ```bash
 # Check if webapp is running
 curl -I http://127.0.0.1:7860
 
 # View processes
 ps aux | grep "aiconfigurator webapp"
+```
+
+**On Windows (Command Prompt):**
+```cmd
+REM Check if webapp is running
+curl -I http://127.0.0.1:7860
+
+REM View processes
+tasklist | findstr "python"
+```
+
+**On Windows (PowerShell):**
+```powershell
+# Check if webapp is running
+curl.exe -I http://127.0.0.1:7860
+
+# View processes
+Get-Process | Where-Object {$_.ProcessName -eq "python"}
 ```
 
 ---
@@ -73,6 +121,7 @@ ps aux | grep "aiconfigurator webapp"
 - **Git LFS:** Required for performance database files
 - **Memory:** ~4 GB RAM (for loading performance databases)
 - **Disk Space:** ~2 GB (including dependencies and databases)
+- **Operating Systems:** Linux, macOS, Windows 10/11 (native or WSL2)
 
 ---
 
@@ -85,6 +134,7 @@ The WebUI provides:
 - 📁 Automatic generation of deployment configuration files
 - 🖥️ Support for multiple GPU types (H100, H200, B200, GB200, A100)
 - 🛠️ Multiple framework support (TensorRT-LLM, vLLM, SGLang)
+- 💻 Cross-platform support (Linux, macOS, Windows)
 
 ---
 

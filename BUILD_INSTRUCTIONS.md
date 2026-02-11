@@ -7,13 +7,43 @@ SPDX-License-Identifier: Apache-2.0
 
 This guide provides step-by-step instructions to build and run the aiconfigurator WebUI.
 
+## Platform Support
+
+aiconfigurator WebUI is compatible with:
+- **Linux** (Ubuntu, Debian, RHEL, etc.)
+- **macOS** (Intel and Apple Silicon)
+- **Windows 10/11** (native or WSL2)
+
+> **Note for Windows Users**: While the core Python package works on Windows, some advanced features and deployment scripts are optimized for Linux/Unix environments. For full functionality, we recommend using Windows Subsystem for Linux 2 (WSL2).
+
 ## Prerequisites
 
 - Python 3.9 or later
-- pip3
+- pip (or pip3)
 - Git LFS (Large File Support)
 
-## Installation Steps
+## Quick Start
+
+### Using Automated Scripts
+
+**On Linux/macOS:**
+```bash
+./build_and_launch.sh
+```
+
+**On Windows (Command Prompt):**
+```cmd
+build_and_launch.bat
+```
+
+**On Windows (PowerShell):**
+```powershell
+.\build_and_launch.bat
+```
+
+These scripts will automatically install dependencies and launch the WebUI.
+
+## Manual Installation Steps
 
 ### 1. Install Git LFS
 
@@ -29,9 +59,29 @@ apt-get install git-lfs
 brew install git-lfs
 ```
 
+**On Windows:**
+Download and install from: https://git-lfs.github.com/
+
+Or with Chocolatey:
+```cmd
+choco install git-lfs
+```
+
+Or with Winget:
+```cmd
+winget install GitHub.GitLFS
+```
+
 ### 2. Clone the Repository
 
+**On Linux/macOS:**
 ```bash
+git clone https://github.com/ai-dynamo/aiconfigurator.git
+cd aiconfigurator
+```
+
+**On Windows:**
+```cmd
 git clone https://github.com/ai-dynamo/aiconfigurator.git
 cd aiconfigurator
 ```
@@ -39,16 +89,32 @@ cd aiconfigurator
 ### 3. Pull LFS Files
 
 After cloning, pull the large files:
+
+**On Linux/macOS:**
 ```bash
+git lfs pull
+```
+
+**On Windows:**
+```cmd
 git lfs pull
 ```
 
 ### 4. Install aiconfigurator with WebApp Dependencies
 
 Install the package in editable mode with webapp support:
+
+**On Linux/macOS:**
 ```bash
 pip3 install -e ".[webapp]"
 ```
+
+**On Windows:**
+```cmd
+python -m pip install -e ".[webapp]"
+```
+
+> **Note**: On Windows, you may need to use `python` instead of `python3` and `pip` instead of `pip3`
 
 This will install:
 - The `aiconfigurator` package
@@ -59,7 +125,15 @@ This will install:
 ### 5. Verify Installation
 
 Check that aiconfigurator is installed correctly:
+
+**On Linux/macOS:**
 ```bash
+aiconfigurator --help
+aiconfigurator version
+```
+
+**On Windows:**
+```cmd
 aiconfigurator --help
 aiconfigurator version
 ```
@@ -71,7 +145,14 @@ You should see the available commands including `webapp`.
 ### Basic Launch
 
 To start the WebUI with default settings:
+
+**On Linux/macOS:**
 ```bash
+aiconfigurator webapp
+```
+
+**On Windows:**
+```cmd
 aiconfigurator webapp
 ```
 
@@ -79,7 +160,7 @@ The webapp will be available at: **http://127.0.0.1:7860**
 
 ### Advanced Launch Options
 
-You can customize the webapp launch with various options:
+You can customize the webapp launch with various options (same on all platforms):
 
 ```bash
 # Change server address and port
@@ -134,8 +215,15 @@ aiconfigurator webapp --server-port 8080
 ### Gradio Not Installed
 
 If you see a warning about Gradio not being installed, ensure you installed with webapp dependencies:
+
+**On Linux/macOS:**
 ```bash
 pip3 install -e ".[webapp]"
+```
+
+**On Windows:**
+```cmd
+python -m pip install -e ".[webapp]"
 ```
 
 ### Missing LFS Files
@@ -145,6 +233,28 @@ If you encounter errors about missing data files, ensure Git LFS is installed an
 git lfs install
 git lfs pull
 ```
+
+### Windows-Specific Issues
+
+**Python not found:**
+- Ensure Python is added to your system PATH during installation
+- Try using `py` command instead: `py -m pip install -e ".[webapp]"`
+
+**Permission errors during installation:**
+- Run Command Prompt or PowerShell as Administrator
+- Or use virtual environment: `python -m venv venv && venv\Scripts\activate`
+
+**Script execution policy errors (PowerShell):**
+- Run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+
+**Long path issues:**
+- Enable long paths in Windows: `git config --system core.longpaths true`
+- Or clone to a shorter path like `C:\aic`
+
+**For best compatibility on Windows**, we recommend using Windows Subsystem for Linux 2 (WSL2):
+1. Install WSL2: https://docs.microsoft.com/en-us/windows/wsl/install
+2. Install Ubuntu from Microsoft Store
+3. Follow the Linux installation instructions inside WSL2
 
 ### Performance Database Warnings
 
