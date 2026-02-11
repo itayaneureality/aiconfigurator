@@ -127,8 +127,6 @@ pip3 install -e ".[webapp]"
 python -m pip install -e ".[webapp]"
 ```
 
-> **Note**: On Windows, you may need to use `python` instead of `python3` and `pip` instead of `pip3`
-
 This will install:
 - The `aiconfigurator` package
 - All runtime dependencies (numpy, pandas, matplotlib, etc.)

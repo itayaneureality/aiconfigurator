@@ -16,7 +16,7 @@ This is a quick reference guide for setting up and running the aiconfigurator We
 **Important**: Run all commands from the **repository root directory** (the folder containing `build_and_launch.sh` / `build_and_launch.bat`).
 
 ```bash
-cd aiconfigurator  # After cloning
+cd aiconfigurator  # Navigate to the cloned repository directory
 ```
 
 ## TL;DR - Fast Setup
