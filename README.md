@@ -22,22 +22,44 @@ Let's get started.
 
 ## Build and Install
 
+### Platform Support
+
+aiconfigurator works on:
+- **Linux** (Ubuntu, Debian, RHEL, etc.) - Full support ✅
+- **macOS** (Intel and Apple Silicon) - Full support ✅  
+- **Windows 10/11** - WebUI and CLI supported ✅ (WSL2 recommended for deployment scripts)
+
 ### Quick Start for WebUI
 
-For detailed WebUI build instructions and automated setup, see **[BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)** or use the quick build script:
+For detailed WebUI build instructions and automated setup, see **[BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)** or use the quick build script from the repository root directory:
 
+**On Linux/macOS:**
 ```bash
+cd aiconfigurator  # Navigate to repository root
 ./build_and_launch.sh
+```
+
+**On Windows:**
+```cmd
+cd aiconfigurator  REM Navigate to repository root
+build_and_launch.bat
 ```
 
 ### Install from PyPI
 
+**On Linux/macOS:**
 ```bash
 pip3 install aiconfigurator
 ```
 
+**On Windows:**
+```cmd
+python -m pip install aiconfigurator
+```
+
 ### Build and Install from Source
 
+**On Linux/macOS:**
 ```bash
 # 1. Install Git LFS
 apt-get install git-lfs  # (Linux)
@@ -55,6 +77,26 @@ pip3 install .
 
 # 5. Install aiconfigurator with webapp support
 pip3 install .[webapp]
+```
+
+**On Windows:**
+```cmd
+REM 1. Install Git LFS from https://git-lfs.github.com/
+
+REM 2. Clone the repo
+git clone https://github.com/ai-dynamo/aiconfigurator.git
+cd aiconfigurator
+git lfs pull
+
+REM 3. Create and activate a virtual environment
+python -m venv myenv
+myenv\Scripts\activate
+
+REM 4. Install aiconfigurator
+python -m pip install .
+
+REM 5. Install aiconfigurator with webapp support
+python -m pip install .[webapp]
 ```
 
 ### Build with Docker
