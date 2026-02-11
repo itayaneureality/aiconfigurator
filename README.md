@@ -31,15 +31,19 @@ aiconfigurator works on:
 
 ### Quick Start for WebUI
 
-For detailed WebUI build instructions and automated setup, see **[BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)** or use the quick build script:
+For detailed WebUI build instructions and automated setup, see **[BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)** or use the quick build script from the repository root directory:
 
 **On Linux/macOS:**
 ```bash
+cd aiconfigurator  # Navigate to repository root
 ./build_and_launch.sh
 ```
 
 **On Windows:**
 ```cmd
+cd aiconfigurator  REM Navigate to repository root
+build_and_launch.bat
+```
 build_and_launch.bat
 ```
 

@@ -22,9 +22,22 @@ aiconfigurator WebUI is compatible with:
 - pip (or pip3)
 - Git LFS (Large File Support)
 
+## Where to Run the Build Scripts
+
+**Important**: All build and launch commands should be run from the **root directory of the repository** (the directory containing `build_and_launch.sh` or `build_and_launch.bat`).
+
+After cloning the repository:
+```bash
+cd aiconfigurator
+```
+
+Then run the build script from this location.
+
 ## Quick Start
 
 ### Using Automated Scripts
+
+The automated scripts will handle all installation steps for you.
 
 **On Linux/macOS:**
 ```bash
@@ -266,6 +279,48 @@ Some warnings about missing data files (e.g., Mamba2, wideep MoE) are expected. 
 - [DEVELOPMENT.md](DEVELOPMENT.md) - Development guide
 - [CLI User Guide](docs/cli_user_guide.md) - Detailed CLI documentation
 - [Advanced Tuning](docs/advanced_tuning.md) - Advanced configuration options
+
+## Frequently Asked Questions (FAQ)
+
+### Where should I run the build and launch script?
+
+Run the build and launch script from the **root directory of the repository** (the folder that contains the script files).
+
+**Steps:**
+1. Clone the repository: `git clone https://github.com/ai-dynamo/aiconfigurator.git`
+2. Navigate to the root: `cd aiconfigurator`
+3. Run the script:
+   - **Linux/macOS**: `./build_and_launch.sh`
+   - **Windows**: `build_and_launch.bat`
+
+### Can I run it in a Windows environment?
+
+**Yes!** aiconfigurator fully supports Windows 10/11. You have two options:
+
+**Option 1: Native Windows (Recommended for WebUI)**
+- Use `build_and_launch.bat` script
+- Or manually install: `python -m pip install -e ".[webapp]"`
+- Then run: `aiconfigurator webapp`
+
+**Option 2: WSL2 (Recommended for full deployment)**
+- Install WSL2: https://docs.microsoft.com/en-us/windows/wsl/install
+- Install Ubuntu from Microsoft Store
+- Follow Linux instructions inside WSL2
+
+> **Note**: The WebUI and CLI work perfectly on native Windows. However, some advanced deployment scripts and automation tools are optimized for Linux/Unix environments. For complete deployment workflows, we recommend WSL2.
+
+### What if I don't have Git LFS installed?
+
+You'll see a warning, but the script will continue. However, you may encounter errors about missing performance database files. Install Git LFS from:
+- **Windows**: https://git-lfs.github.com/
+- **Linux**: `apt-get install git-lfs` or `yum install git-lfs`
+- **macOS**: `brew install git-lfs`
+
+Then run: `git lfs pull` to download the required files.
+
+### Can I use a different Python version?
+
+Python 3.9 or later is required. The script will check your Python version and warn you if it's incompatible.
 
 ## Support
 

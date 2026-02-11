@@ -11,6 +11,14 @@ This is a quick reference guide for setting up and running the aiconfigurator We
 
 ✅ **Linux** | ✅ **macOS** | ✅ **Windows 10/11** (native or WSL2)
 
+## Where to Run Commands
+
+**Important**: Run all commands from the **repository root directory** (the folder containing `build_and_launch.sh` / `build_and_launch.bat`).
+
+```bash
+cd aiconfigurator  # After cloning
+```
+
 ## TL;DR - Fast Setup
 
 **On Linux/macOS:**
